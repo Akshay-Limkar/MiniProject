@@ -1,2 +1,0 @@
-# MiniProject
-#Akshay-Limkar
