@@ -1,7 +1,4 @@
 package com.miniproject.quizapplication;
-import java.io.IOException;
-import java.sql.SQLException;
-
 import com.miniproject.tables.AddQuestionMethod;
 
 public class QuizApplication {
