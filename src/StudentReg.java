@@ -1,49 +1,55 @@
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
-	import java.sql.ResultSet;
 	import java.sql.SQLException;
 import java.util.Scanner;
 
 public class StudentReg {
 
 
-	    public static void main (String[]args) throws ClassNotFoundException {
-	        try {
-	        	  Scanner scan = new Scanner(System.in);
+	    public  void registerStudent() throws ClassNotFoundException,SQLException {
+	        
+	        Class.forName("com.mysql.jdbc.Driver");
+        		
+        	 Connection connection = DriverManager.getConnection("jdbc:mysql://sql12.freesqldatabase.com:3306/sql12655381" , "sql12655381" , "7C1BhmxHMh");
+        	 System.out.println("connected");
+             PreparedStatement statement = connection.prepareStatement("insert into Student (firstname , lastname, usrname, password,city,mailId,mobileNumber)values(?,?,?,?,?,?,?)");
+	        	  
+               Scanner scan = new Scanner(System.in);
 	        	  
 	        	  System.out.println("Enter the firstname ");
-	        	  String fn = scan.next();
+	        	  String firstname = scan.next();
 	        	  System.out.println("Enter the last name");
-	        	  String ln = scan.next();
+	        	  String lastname = scan.next();
 	        	  System.out.println("Enter the username");
-	        	  String un = scan.next();
+	        	  String username = scan.next();
 	        	  System.out.println("Enter the password");
-	        	  String pw = scan.next();
+	        	  String password = scan.next();
 	        	  System.out.println("Enter the city");
-	        	  String c = scan.next();
-	        	  System.out.println("Enter the last nameyour maiID");
-	        	  String mid = scan.next();
+	        	  String city = scan.next();
+	        	  System.out.println("Enter your maiID");
+	        	  String mailid = scan.next();
 	        	  System.out.println("Enter your mobile number ");
-	        	  Long mb = scan.nextLong();
-	        	    String sql = " insert into user(firstname , lastname, username, password,city,maiID,mobileNumber)" + "values('fn' ,  'ln',  'un' ,  'c', ' mid', 'mb')"; 
-	        		Class.forName("com.mysql.cj.jdbc.Driver");
+	        	  String mobileNO = scan.next();
+	        	     
 	        		
-	        		Connection connection = DriverManager.getConnection("jdbc:mysql://mysql://localhost:3306/sys" , "sql12655381" , "sql12655381");
-	             PreparedStatement statement = connection.prepareStatement("insert into student (firstname , lastname, username, password,city,maiID,mobileNumber)values(?,?,?,?,?,?,?)"); 
-	            statement.setString(1, fn);
-	            statement.setString(2, ln);
-	            statement.setString(3, un);
-	            statement.setString(4, pw);
-	            statement.setString(5, mid);
-	             statement.setLong(6, mb);   
+	             
+	            statement.setString(1, firstname);
+	            statement.setString(2, lastname);
+	            statement.setString(3, username);
+	            statement.setString(4, password);
+	            statement.setString(5, city);
+	            statement.setString(6, mailid);
+	            statement.setString(7, mobileNO); 
+	            statement.executeUpdate();
 	            
-	        } catch (SQLException e) {
+	             System.out.println("Resgistered successfully");
+	       
 	            // Handle exceptions
 	        }
 	       
 	    
 	
 }
-}
+
 
