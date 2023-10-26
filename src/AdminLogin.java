@@ -17,7 +17,7 @@
 			
 			Connection con = DriverManager.getConnection("jdbc:mysql://sql12.freesqldatabase.com:3306/sql12655381" , "sql12655381" , "7C1BhmxHMh");
 			
-			System.out.println("connection established");
+			
 			
 			PreparedStatement ps = con.prepareStatement("select * from adminLogin");
 			
@@ -27,7 +27,7 @@
 			Scanner sc =  new Scanner(System.in);
 			
 			System.out.println("welcome");
-			System.out.println("enter username:");
+			System.out.println("Enter username:");
 			String uname =sc.next();
 			
 			System.out.println("Enter password");
@@ -35,7 +35,7 @@
 		    
 		    if(uname.equals(rs.getString(2)) && pw.equals(rs.getString(3))) {
 		    	
-		    	System.out.println("login successful");
+		    	System.out.println("Login successful");
 		    }
 		    else {
 		    	System.out.println("Enter correct credentials");
