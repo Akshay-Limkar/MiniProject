@@ -31,7 +31,7 @@
 			String uname =sc.next();
 			
 			System.out.println("Enter password");
-		    String pw = sc.next();
+		        String pw = sc.next();
 		    
 		    if(uname.equals(rs.getString(2)) && pw.equals(rs.getString(3))) {
 		    	
