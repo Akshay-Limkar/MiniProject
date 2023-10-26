@@ -7,7 +7,7 @@ import java.util.Scanner;
 public class StudentReg {
 
 
-	    public  void registerStudent() throws ClassNotFoundException,SQLException {
+	    public  static void main(String[] args) throws ClassNotFoundException,SQLException {
 	        
 	        Class.forName("com.mysql.jdbc.Driver");
         		
